@@ -3,5 +3,5 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "venv/bin/python"
+    "python.pythonPath": "C:\\Users\\Stas\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
 }
