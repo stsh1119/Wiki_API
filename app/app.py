@@ -18,6 +18,7 @@ def add_page():
     if request.is_json:
         title = request.json.get("title")
         body = request.json.get("body")
+
         # return request.get_json()
         return f"""{title} --- {body}"""
 
