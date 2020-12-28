@@ -1,26 +1,32 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 import db
+from prettify_db_output import prepare_results_from_db
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    results = []
-    for row in db.view_all_articles():
-        result = {"id": row[0], "title": row[1], "text": row[2], "is_current": row[3]}
-        results.append(result)
-    return jsonify(results)
+    return '''API Usage:
+- view_all_articles     --> /articles/all
+- view specific article --> /atricles/article_id
+- add new article       --> /atricles/add_new
+- edit article          --> /atricles/modify
+...
+'''
 
 
-@app.route("/add_page", methods=["POST"])
-def add_page():
-    if request.is_json:
-        title = request.json.get("title")
-        body = request.json.get("body")
+@app.route("/articles/all")
+def view_all_articles():
+    articles = [article for article in prepare_results_from_db()]
+    return jsonify(articles)
 
-        # return request.get_json()
-        return f"""{title} --- {body}"""
+
+@app.route("/articles//<article_id>")
+def view_articles_by_id(article_id):
+    pass
+    # articles = [article for article in db.view_articles_for_specific_id(article_id)]
+    # return jsonify(articles)
 
 
 if __name__ == "__main__":
