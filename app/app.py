@@ -22,11 +22,10 @@ def view_all_articles():
     return jsonify(articles)
 
 
-@app.route("/articles//<article_id>")
+@app.route("/articles/<article_id>")
 def view_articles_by_id(article_id):
-    pass
-    # articles = [article for article in db.view_articles_for_specific_id(article_id)]
-    # return jsonify(articles)
+    articles = [article for article in db.view_articles_for_specific_id(article_id)]
+    return jsonify(articles)
 
 
 if __name__ == "__main__":
