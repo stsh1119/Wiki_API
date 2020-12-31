@@ -14,14 +14,6 @@ select * -- to find all versions for a specific article
 from wiki_page
 where article_id = 1;
 
-insert into wiki_page(article_id, title, text, version, is_main)
-values(1,'Blah blah', 'Body of this article', 2, TRUE);
-
-update wiki_page
-set is_main = FALSE
-where is_main = 1 and  version != 2;
-
-drop table wiki_page;
 
 select * -- to find latest version of the article
 from wiki_page
@@ -31,3 +23,16 @@ and version = (select max(version)
                from wiki_page
                where article_id = 1
                group by article_id);
+
+update wiki_page -- to update is_main flag whenever new article is added
+set is_main = 0
+where article_id = 3
+and version != (select max(version)
+                from wiki_page
+                where article_id = 3
+                group by article_id);
+
+
+delete from wiki_page; -- to truncate the table
+
+drop table wiki_page; -- to drop the table
