@@ -1,10 +1,7 @@
-import db
-
-
-def prepare_results_from_db() -> list:
+def prepare_results_from_db(raw_db_output: list) -> list:
     parsed_articles = []
 
-    for db_tuple in db.view_all_articles():  # getting tuple data from database and forming dictionary
+    for db_tuple in raw_db_output:  # getting tuple data from database and forming dictionary
         dict_output = {'id': db_tuple[0],
                        'title': db_tuple[1],
                        'text': db_tuple[2],
