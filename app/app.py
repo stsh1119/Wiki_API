@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
-    return '''API Usage:
+    return '''<pre>API Usage:
 - view_all_articles                   --> /articles/all [GET]
 - view specific article               --> /articles/<article_id> [GET]
 - view main(current) article          --> /articles/<article_id>/main [GET]
@@ -22,7 +22,7 @@ Requests should have the following structure:
 }
 - make any version of the page 'main' --> /articles/make_main [POST]
 Use art_id and version in query parameters to specify which version will be 'main'
-'''
+</pre>'''
 
 
 @app.route("/articles/all", methods=["GET"])
