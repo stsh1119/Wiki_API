@@ -1,5 +1,5 @@
 import unittest
-from app.validate_input import validate_input
+from api.validate_input import validate_input
 
 
 class TestValidations(unittest.TestCase):

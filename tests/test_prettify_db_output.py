@@ -1,5 +1,5 @@
 import unittest
-from app.prettify_db_output import prepare_results_from_db
+from api.prettify_db_output import prepare_results_from_db
 
 
 class TestPrepareResults(unittest.TestCase):

@@ -1,5 +1,5 @@
 import sqlite3
-from prettify_db_output import prepare_results_from_db
+from api.prettify_db_output import prepare_results_from_db
 
 
 def view_all_articles() -> list:

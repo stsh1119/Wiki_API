@@ -1,16 +1,15 @@
-from flask import Flask, jsonify, request
-from validate_input import validate_input
-import db
-
-app = Flask(__name__)
+from flask import jsonify, request
+from api import app
+from api import db
+from api.validate_input import validate_input
 
 
 @app.route("/", methods=["GET"])
 def home():
     return '''<pre>API Usage:
 - view_all_articles                   --> /articles/all [GET]
-- view specific article               --> /articles/<article_id> [GET]
-- view main(current) article          --> /articles/<article_id>/main [GET]
+- view specific article               --> /articles/{article_id} [GET]
+- view main(current) article          --> /articles/{article_id}/main [GET]
 - add new article                     --> /atricles/add [POST]
 Requests should have the following structure:
 {
@@ -66,7 +65,3 @@ def make_main():
     if 'art_id' and 'version' in request.args:
         db.manually_set_is_main_flag(article_id=request.args['art_id'], version=request.args['version'])
     return jsonify('OK')
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
