@@ -1,7 +1,7 @@
 from flask import jsonify, request
-from api import app
-from api import db
-from api.validate_input import validate_input
+from wiki_api import app
+from wiki_api import db
+from wiki_api.validate_input import validate_input
 
 
 @app.route("/", methods=["GET"])

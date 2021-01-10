@@ -1,5 +1,5 @@
 import unittest
-from api.validate_input import validate_input
+from wiki_api.validate_input import validate_input
 
 
 class TestValidations(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestValidations(unittest.TestCase):
                        "text": "Body",
                        "title": "1st"
                        }
-        self.assertEqual(validate_input(test_object), None, 'If seme fields are absent - None should be returned')
+        self.assertEqual(validate_input(test_object), None, 'If same fields are absent - None should be returned')
 
 
 if __name__ == '__main__':
